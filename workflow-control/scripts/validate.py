@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Deterministic validation for staged single-agent workflow results."""
+"""Deterministic validation for staged workflow control results."""
 
 from __future__ import annotations
 

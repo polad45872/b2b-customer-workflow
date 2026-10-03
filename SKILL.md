@@ -14,7 +14,7 @@ description: 按产品服务和目标客户画像组织城市级B2B潜客检索�
 ## 入口与运行方式
 
 - 仅检索、核验和名单交付：使用 [城市B2B潜客检索](search-skill/SKILL.md)。这一入口不要求先完成企业登记数据补全或CRM录入。
-- 已明确需要后续企业业务补全和竞争对手分析：使用 [后续阶段说明](single-agent-workflow/README.md)，并由主控维护阶段状态和字段权限。
+- 已明确需要后续企业业务补全和竞争对手分析：使用 [后续阶段说明](workflow-control/README.md)，并由主控维护阶段状态和字段权限。
 - 制作本框架的副本、检查规则或阅读示例，不代表启动获客检索，也不代表授权CRM写入、联系企业或发送信息。
 
 ## 启动任务
@@ -23,7 +23,7 @@ description: 按产品服务和目标客户画像组织城市级B2B潜客检索�
 
 使用 [配置作者说明](search-skill/examples/AUTHORING.md) 准备行业配置。示例需按实际业务调整并经用户确认，不能默认当作真实检索策略。详细检索命令和阶段推进按 [执行流程](search-skill/search-skill.md) 运行；脚本参数不明确时先查看对应脚本的帮助。
 
-后续分析使用 `single-agent-workflow/scripts/workflow.py`，流程为 SEARCH_DONE → INFERENCE_RUNNING → INFERENCE_DONE → BASE_FIELDS_LOCKED → COMPETITOR_SEARCH_RUNNING → COMPETITOR_SEARCH_DONE → DELIVERY_READY → DONE。Agent 依据证据生成业务结果 JSON，主控负责领取批次、校验和保存；脚本不自动生成业务结论。
+后续分析使用 `workflow-control/scripts/workflow.py`，流程为 SEARCH_DONE → INFERENCE_RUNNING → INFERENCE_DONE → BASE_FIELDS_LOCKED → COMPETITOR_SEARCH_RUNNING → COMPETITOR_SEARCH_DONE → DELIVERY_READY → DONE。Agent 依据证据生成业务结果 JSON，主控负责领取批次、校验和保存；脚本不自动生成业务结论。
 
 ## 获客口径
 

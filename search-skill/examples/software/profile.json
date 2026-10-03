@@ -62,7 +62,7 @@
     "keywords": "keywords.json",
     "expansion": "../../assets/expansion-feature-chains.json",
     "policy": "../../assets/policies.json",
-    "permissions": "../../../single-agent-workflow/config/field_permissions.yml"
+    "permissions": "../../../workflow-control/config/field_permissions.yml"
   },
   "policy": "standard"
 }

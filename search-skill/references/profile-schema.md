@@ -13,7 +13,7 @@
 |exclude_rules|可选的明确排除规则，含rule_id、description、evidence_any|
 |assets.keywords|关键词及查询模板文件|
 |assets.expansion|扩展特征链文件|
-|assets.permissions|字段权限文件；默认使用现有single-agent-workflow/config/field_permissions.yml|
+|assets.permissions|字段权限文件；默认使用现有workflow-control/config/field_permissions.yml|
 |assets.policy、policy|策略文件及standard / strict / light档位；默认assets/policies.json与standard|
 |output_columns|完整有序表头，前三项固定为序号、企业名称、官网地址|
 

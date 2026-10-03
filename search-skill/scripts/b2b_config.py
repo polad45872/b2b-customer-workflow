@@ -80,7 +80,7 @@ def bind_profile(path):
     files = [{"kind": "profile", "path": str(path), "sha256": sha(path)}]
     package_root = Path(__file__).resolve().parents[2]
     defaults = {"policy": package_root/'search-skill/assets/policies.json',
-                "permissions": package_root/'single-agent-workflow/config/field_permissions.yml'}
+                "permissions": package_root/'workflow-control/config/field_permissions.yml'}
     documents = {}
     for kind in ("keywords", "expansion", "permissions", "policy"):
         relative = profile.get("assets", {}).get(kind) or defaults.get(kind)
@@ -104,7 +104,7 @@ def bind_profile(path):
         load_templates(next(Path(f['path']) for f in files if f['kind']=='keywords'))
     except (ValueError, RuntimeError, KeyError, TypeError, AttributeError) as exc:
         raise ConfigError(f'配置整包校验失败：{exc}') from exc
-    engine_paths = sorted([*Path(__file__).parent.glob('*.py'), *(package_root/'single-agent-workflow/scripts').glob('*.py')])
+    engine_paths = sorted([*Path(__file__).parent.glob('*.py'), *(package_root/'workflow-control/scripts').glob('*.py')])
     engine_files = [{'path':str(p.resolve()),'sha256':sha(p)} for p in engine_paths]
     core = {"profile": profile, "files": files, "engine_files":engine_files,
             "execution_version":fingerprint(engine_files), "policy_name":profile.get('policy','standard'),
@@ -127,7 +127,7 @@ def binding_for(state):
     if not engine_files or fingerprint(engine_files)!=binding.get('execution_version'):
         raise ConfigError('执行引擎版本缺失或已变化')
     package_root = Path(__file__).resolve().parents[2]
-    current = {*Path(__file__).parent.glob('*.py'), *(package_root/'single-agent-workflow/scripts').glob('*.py')}
+    current = {*Path(__file__).parent.glob('*.py'), *(package_root/'workflow-control/scripts').glob('*.py')}
     if len(engine_files) != len(current) or {Path(f['path']).resolve() for f in engine_files} != {p.resolve() for p in current}:
         raise ConfigError('绑定的执行引擎文件集合不完整或不属于当前安装目录')
     for record in [*binding["files"], *engine_files]:
