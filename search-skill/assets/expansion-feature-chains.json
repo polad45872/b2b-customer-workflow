@@ -1,0 +1,49 @@
+{
+  "schema_version": "2.0.0",
+  "discovery_method": "YIELD_EXPANSION",
+  "feature_chains": [
+    {
+      "feature_chain_id": "FC-OFFERING-SCENE-ROLE",
+      "dimensions": [
+        "product_or_service",
+        "application_scene",
+        "target_role"
+      ],
+      "query_template": "{city} {product_or_service} {application_scene} {target_role}"
+    },
+    {
+      "feature_chain_id": "FC-BUSINESS-PROCESS-ROLE",
+      "dimensions": [
+        "business_activity",
+        "business_process",
+        "target_role"
+      ],
+      "query_template": "{city} {business_activity} {business_process} {target_role}"
+    },
+    {
+      "feature_chain_id": "FC-DELIVERABLE-DOWNSTREAM",
+      "dimensions": [
+        "deliverable",
+        "downstream_customer",
+        "target_role"
+      ],
+      "query_template": "{city} {deliverable} {downstream_customer} {target_role}"
+    }
+  ],
+  "allowed_similarity_dimensions": [
+    "product_or_service",
+    "application_scene",
+    "target_role",
+    "business_activity",
+    "business_process",
+    "deliverable",
+    "downstream_customer"
+  ],
+  "allowed_source_routes": [
+    "企业官网",
+    "政府/园区",
+    "项目/招投标",
+    "展会/协会",
+    "招聘/专利"
+  ]
+}

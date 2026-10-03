@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0.0",
+  "profile_id": "example-equipment",
+  "version": "2.1.0",
+  "example_only": true,
+  "offering": {
+    "name": "仓储分拣设备",
+    "description": "用于仓库货物输送与分拣的设备",
+    "problem_solved": "提升仓储和配送作业效率"
+  },
+  "target": {
+    "roles": [
+      "直接买方",
+      "方案合作伙伴"
+    ],
+    "industries": [
+      "仓储与物流企业"
+    ],
+    "source_types": [
+      "企业官网",
+      "政府/园区",
+      "项目/招投标",
+      "展会/协会",
+      "招聘/专利"
+    ]
+  },
+  "fit_rules": [
+    {
+      "rule_id": "FIT-BUSINESS",
+      "description": "有与目标业务场景相关的实际经营活动",
+      "relevance_to_offering": "提升仓储和配送作业效率",
+      "evidence_any": [
+        "仓储",
+        "分拣",
+        "配送中心"
+      ],
+      "allowed_roles": [
+        "直接买方",
+        "方案合作伙伴"
+      ]
+    }
+  ],
+  "exclude_rules": [],
+  "output_columns": [
+    "序号",
+    "企业名称",
+    "官网地址",
+    "具体地址",
+    "成立时间",
+    "注册资金/万",
+    "参保人数",
+    "交付的核心产品",
+    "客户类型",
+    "下游行业",
+    "下游客户（企业交付物卖给哪些企业）",
+    "客户的竞争对手",
+    "CRM录入（是否）",
+    "归属区域",
+    "归属销售"
+  ],
+  "assets": {
+    "keywords": "keywords.json",
+    "expansion": "../../assets/expansion-feature-chains.json",
+    "policy": "../../assets/policies.json",
+    "permissions": "../../../single-agent-workflow/config/field_permissions.yml"
+  },
+  "policy": "standard"
+}

@@ -1,0 +1,60 @@
+{
+  "schema_version": 2,
+  "metadata_fields": [
+    "主体核验状态",
+    "冲突状态"
+  ],
+  "stages": {
+    "INFERENCE_RUNNING": {
+      "writable": [
+        "企业ID",
+        "交付的核心产品",
+        "客户类型",
+        "下游行业",
+        "下游客户（企业交付物卖给哪些企业）"
+      ],
+      "required_on_commit": [
+        "交付的核心产品",
+        "客户类型",
+        "下游行业",
+        "下游客户（企业交付物卖给哪些企业）"
+      ]
+    },
+    "COMPETITOR_SEARCH_RUNNING": {
+      "writable": [
+        "企业ID",
+        "客户的竞争对手"
+      ],
+      "required_on_commit": [
+        "客户的竞争对手"
+      ]
+    }
+  },
+  "transitions": {
+    "SEARCH_RUNNING": [
+      "SEARCH_DONE"
+    ],
+    "SEARCH_DONE": [
+      "DELIVERY_READY",
+      "INFERENCE_RUNNING"
+    ],
+    "INFERENCE_RUNNING": [
+      "INFERENCE_DONE"
+    ],
+    "INFERENCE_DONE": [
+      "BASE_FIELDS_LOCKED"
+    ],
+    "BASE_FIELDS_LOCKED": [
+      "COMPETITOR_SEARCH_RUNNING"
+    ],
+    "COMPETITOR_SEARCH_RUNNING": [
+      "COMPETITOR_SEARCH_DONE"
+    ],
+    "COMPETITOR_SEARCH_DONE": [
+      "DELIVERY_READY"
+    ],
+    "DELIVERY_READY": [
+      "DONE"
+    ]
+  }
+}

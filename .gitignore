@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+!.env.example
+.vscode/
+state/
+outputs/
+search-control/
+worker-tasks/
+*.log
+.DS_Store
+Thumbs.db

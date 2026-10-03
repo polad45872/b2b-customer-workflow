@@ -1,0 +1,4 @@
+interface:
+  display_name: "多行业 B2B 潜客检索"
+  short_description: "按产品服务和客户画像检索城市企业潜客，核验来源并交付名单，支持业务补全和竞争对手分析"
+  default_prompt: "使用 $b2b-customer-workflow，依据我的产品服务和目标客户画像，检索指定城市的企业潜客并交付名单、证据包和覆盖核验表。"

@@ -1,0 +1,331 @@
+{
+  "schema_version": "2.0.0",
+  "authority": "当前B2B行业配置",
+  "total_keywords": 6,
+  "deepening_policy": {
+    "schema_version": "2.0.0",
+    "batch_size": 20,
+    "families": {
+      "product_service": {
+        "required_intents": [
+          "END_USER_APPLICATION"
+        ]
+      },
+      "business_scene": {
+        "required_intents": [
+          "END_USER_APPLICATION"
+        ]
+      },
+      "business_need": {
+        "required_intents": [
+          "END_USER_APPLICATION"
+        ]
+      }
+    }
+  },
+  "query_templates": {
+    "schema_version": "2.0.0",
+    "allowed_placeholders": [
+      "city",
+      "keyword",
+      "combination_term"
+    ],
+    "family_templates": {
+      "product_service": {
+        "template_id": "QT-product_service",
+        "pattern": "{city} {keyword}"
+      },
+      "business_scene": {
+        "template_id": "QT-business_scene",
+        "pattern": "{city} {keyword}"
+      },
+      "business_need": {
+        "template_id": "QT-business_need",
+        "pattern": "{city} {keyword}"
+      }
+    },
+    "combination_template": {
+      "template_id": "QT-COMBINATION",
+      "pattern": "{city} {keyword} {combination_term}"
+    },
+    "coverage_family_aliases": {
+      "product_service": [
+        "product_service"
+      ],
+      "business_scene": [
+        "business_scene"
+      ],
+      "business_need": [
+        "business_need"
+      ]
+    },
+    "purpose_variants": {
+      "schema_version": "2.0.0",
+      "allowed_placeholders": [
+        "city",
+        "keyword",
+        "combination_term",
+        "context"
+      ],
+      "intents": {
+        "PRODUCT_SERVICE_SUPPLY": {
+          "description": "产品或服务供应",
+          "applicable_families": [
+            "product_service",
+            "business_scene",
+            "business_need"
+          ],
+          "custom_markers": [
+            "产品",
+            "服务",
+            "供应商"
+          ],
+          "allowed_discovery_paths": [
+            "LIST_EXTRACTION",
+            "PRODUCT_PROCESS",
+            "HIRING_PROCUREMENT",
+            "PROJECT_TRACE"
+          ],
+          "variants": [
+            {
+              "variant_id": "PRODUCT_SERVICE_SUPPLY-1",
+              "pattern": "{city} {keyword} {combination_term} {context} 厂家"
+            },
+            {
+              "variant_id": "PRODUCT_SERVICE_SUPPLY-2",
+              "pattern": "{city} {keyword} {combination_term} {context} 服务商"
+            },
+            {
+              "variant_id": "PRODUCT_SERVICE_SUPPLY-3",
+              "pattern": "{city} {keyword} {combination_term} {context} 供应商"
+            }
+          ]
+        },
+        "SOLUTION_APPLICATION": {
+          "description": "方案与合作关系",
+          "applicable_families": [
+            "product_service",
+            "business_scene",
+            "business_need"
+          ],
+          "custom_markers": [
+            "方案",
+            "集成",
+            "合作"
+          ],
+          "allowed_discovery_paths": [
+            "LIST_EXTRACTION",
+            "PRODUCT_PROCESS",
+            "HIRING_PROCUREMENT",
+            "PROJECT_TRACE"
+          ],
+          "variants": [
+            {
+              "variant_id": "SOLUTION_APPLICATION-1",
+              "pattern": "{city} {keyword} {combination_term} {context} 解决方案"
+            },
+            {
+              "variant_id": "SOLUTION_APPLICATION-2",
+              "pattern": "{city} {keyword} {combination_term} {context} 合作案例"
+            },
+            {
+              "variant_id": "SOLUTION_APPLICATION-3",
+              "pattern": "{city} {keyword} {combination_term} {context} 应用案例"
+            }
+          ]
+        },
+        "END_USER_APPLICATION": {
+          "description": "客户业务与使用场景",
+          "applicable_families": [
+            "product_service",
+            "business_scene",
+            "business_need"
+          ],
+          "custom_markers": [
+            "企业",
+            "应用",
+            "运营"
+          ],
+          "allowed_discovery_paths": [
+            "LIST_EXTRACTION",
+            "PRODUCT_PROCESS",
+            "HIRING_PROCUREMENT",
+            "PROJECT_TRACE"
+          ],
+          "variants": [
+            {
+              "variant_id": "END_USER_APPLICATION-1",
+              "pattern": "{city} {keyword} {combination_term} {context} 企业 业务"
+            },
+            {
+              "variant_id": "END_USER_APPLICATION-2",
+              "pattern": "{city} {keyword} {combination_term} {context} 应用 项目"
+            },
+            {
+              "variant_id": "END_USER_APPLICATION-3",
+              "pattern": "{city} {keyword} {combination_term} {context} 运营 服务"
+            }
+          ]
+        },
+        "HIRING_DISCOVERY": {
+          "description": "招聘线索",
+          "applicable_families": [
+            "product_service",
+            "business_scene",
+            "business_need"
+          ],
+          "custom_markers": [
+            "招聘",
+            "岗位",
+            "任职"
+          ],
+          "allowed_discovery_paths": [
+            "LIST_EXTRACTION",
+            "PRODUCT_PROCESS",
+            "HIRING_PROCUREMENT",
+            "PROJECT_TRACE"
+          ],
+          "variants": [
+            {
+              "variant_id": "HIRING_DISCOVERY-1",
+              "pattern": "{city} {keyword} {combination_term} {context} 招聘 岗位"
+            },
+            {
+              "variant_id": "HIRING_DISCOVERY-2",
+              "pattern": "{city} {keyword} {combination_term} {context} 招聘 职责"
+            },
+            {
+              "variant_id": "HIRING_DISCOVERY-3",
+              "pattern": "{city} {keyword} {combination_term} {context} 人才 招聘"
+            }
+          ]
+        },
+        "PROCUREMENT_DISCOVERY": {
+          "description": "采购及项目线索",
+          "applicable_families": [
+            "product_service",
+            "business_scene",
+            "business_need"
+          ],
+          "custom_markers": [
+            "采购",
+            "招标",
+            "项目"
+          ],
+          "allowed_discovery_paths": [
+            "LIST_EXTRACTION",
+            "PRODUCT_PROCESS",
+            "HIRING_PROCUREMENT",
+            "PROJECT_TRACE"
+          ],
+          "variants": [
+            {
+              "variant_id": "PROCUREMENT_DISCOVERY-1",
+              "pattern": "{city} {keyword} {combination_term} {context} 采购 招标"
+            },
+            {
+              "variant_id": "PROCUREMENT_DISCOVERY-2",
+              "pattern": "{city} {keyword} {combination_term} {context} 项目 建设"
+            },
+            {
+              "variant_id": "PROCUREMENT_DISCOVERY-3",
+              "pattern": "{city} {keyword} {combination_term} {context} 招标 公告"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "base_keywords": [
+    {
+      "keyword_id": "BK-001",
+      "keyword": "连锁经营",
+      "keyword_family": "product_service",
+      "direct_search": true,
+      "requires_combination": false,
+      "match_terms": [
+        "连锁经营"
+      ],
+      "combination_with": [
+        "企业",
+        "服务",
+        "项目"
+      ]
+    },
+    {
+      "keyword_id": "BK-002",
+      "keyword": "多门店",
+      "keyword_family": "business_scene",
+      "direct_search": true,
+      "requires_combination": false,
+      "match_terms": [
+        "多门店"
+      ],
+      "combination_with": [
+        "企业",
+        "服务",
+        "项目"
+      ]
+    },
+    {
+      "keyword_id": "BK-003",
+      "keyword": "门店管理",
+      "keyword_family": "business_need",
+      "direct_search": true,
+      "requires_combination": false,
+      "match_terms": [
+        "门店管理"
+      ],
+      "combination_with": [
+        "企业",
+        "服务",
+        "项目"
+      ]
+    },
+    {
+      "keyword_id": "BK-004",
+      "keyword": "连锁品牌",
+      "keyword_family": "product_service",
+      "direct_search": true,
+      "requires_combination": false,
+      "match_terms": [
+        "连锁品牌"
+      ],
+      "combination_with": [
+        "企业",
+        "服务",
+        "项目"
+      ]
+    },
+    {
+      "keyword_id": "BK-005",
+      "keyword": "门店拓展",
+      "keyword_family": "business_scene",
+      "direct_search": true,
+      "requires_combination": false,
+      "match_terms": [
+        "门店拓展"
+      ],
+      "combination_with": [
+        "企业",
+        "服务",
+        "项目"
+      ]
+    },
+    {
+      "keyword_id": "BK-006",
+      "keyword": "门店采购",
+      "keyword_family": "business_need",
+      "direct_search": true,
+      "requires_combination": false,
+      "match_terms": [
+        "门店采购"
+      ],
+      "combination_with": [
+        "企业",
+        "服务",
+        "项目"
+      ]
+    }
+  ]
+}

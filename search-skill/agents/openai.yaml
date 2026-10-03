@@ -1,0 +1,13 @@
+interface:
+  display_name: "城市 B2B 潜客检索"
+  short_description: "按产品服务与客户画像搜索城市企业潜客，核验业务匹配并交付名单及证据"
+  icon_small: "assets/icon.svg"
+  icon_large: "assets/icon.svg"
+  default_prompt: "使用 $city-b2b-prospect-search，按指定行业配置搜索目标城市的企业潜客并交付名单、证据包和覆盖核验表。"
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true
