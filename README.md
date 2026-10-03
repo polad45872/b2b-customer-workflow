@@ -70,7 +70,7 @@ b2b-customer-workflow/
 │   ├── references/               配置、核验、覆盖及交付规范
 │   ├── assets/                   默认扩展链与策略等资产
 │   └── examples/                 equipment、software、services 示例
-└── single-agent-workflow/
+└── workflow-control/
     ├── README.md                 可选业务分析流程
     ├── config/field_permissions.yml
     └── scripts/                  后续阶段状态与提交控制
@@ -84,7 +84,7 @@ b2b-customer-workflow/
 | 判断企业是否入选 | [核验规则](search-skill/references/qualification-rules.md) |
 | 理解覆盖及质量门禁 | [覆盖规则](search-skill/references/coverage-rules.md)、[质量门禁](search-skill/references/quality-gates.md) |
 | 查看输出字段和证据结构 | [交付结构](search-skill/references/output-schema.md)、[导出规则](search-skill/references/export-rules.md) |
-| 补全业务及竞争对手 | [后续工作流](single-agent-workflow/README.md) |
+| 补全业务及竞争对手 | [后续工作流](workflow-control/README.md) |
 
 ## 5. 行业配置：决定搜谁、为什么入选
 
@@ -128,7 +128,7 @@ python <引擎根目录>/search-skill/scripts/b2b_profile_control.py preview --p
 | expansion_control.py | 基于可追溯种子的同类企业扩展 |
 | city_coverage_control.py | 城市累计覆盖、停止检查、冻结及重算 |
 | final_delivery_control.py | 独立复核并导出交付物 |
-| single-agent-workflow/scripts/workflow.py | 可选分析阶段、字段锁及最终状态推进 |
+| workflow-control/scripts/workflow.py | 可选分析阶段、字段锁及最终状态推进 |
 
 详细命令顺序以执行流程为准，具体参数先查看对应脚本 `--help`。上述模块是受控接口，不应以手工修改状态 JSON 的方式替代正式提交。
 
@@ -217,3 +217,4 @@ SEARCH_DONE → INFERENCE_RUNNING → INFERENCE_DONE → BASE_FIELDS_LOCKED
 交付前应确认：配置整包校验通过；全部发现线索有处置；FINAL 主体、地域及业务证据齐全；覆盖与收敛通过冻结重算；主表和证据企业集合一致；三项产物和交付清单通过独立校验。静态配置校验不能代替真实网页检索及企业核验。
 
 本 README 是项目总览；执行细节以链接的阶段规范、绑定配置和当前脚本帮助为准。维护时应同步更新功能边界、命令入口、字段权限、策略说明及交付结构。
+
